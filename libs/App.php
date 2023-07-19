@@ -92,8 +92,8 @@ class App
   public function delete($query, $path)
   {
 
-    $update_one = $this->link->query($query);
-    $update_one->execute();
+    $delete = $this->link->query($query);
+    $delete->execute();
 
     header("location:" . $path);
   }
