@@ -23,6 +23,35 @@ class App
       echo "Connection successful";
     }
   }
+
+
+  // fetch all data
+  public function selectAll($query)
+  {
+    $allRows = $this->link->query($query);
+    $allRows->execute();
+    $allRows->fetchAll(PDO::FETCH_OBJ);
+
+    if ($allRows) {
+      return $allRows;
+    } else {
+      return false;
+    }
+  }
+
+  // fetch single data
+  public function selectSingle($query)
+  {
+    $singleRow = $this->link->query($query);
+    $singleRow->execute();
+    $singleRow->fetch(PDO::FETCH_OBJ);
+
+    if ($singleRow) {
+      return $singleRow;
+    } else {
+      return false;
+    }
+  }
 }
 
 $app = new App();
