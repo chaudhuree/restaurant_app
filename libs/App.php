@@ -52,6 +52,29 @@ class App
       return false;
     }
   }
+
+  // validate input is empty or not
+  public function validate($arr)
+  {
+    if (in_array("", $arr)) {
+      echo "Please fill all the fields";
+    }
+  }
+
+  // insert data
+
+  public function insert($query, $arr, $path)
+  {
+    if ($this->validate($arr) == "empty") {
+      echo "<script>alert('one or more fields are empty')</script>";
+    } else {
+      $insert_one = $this->link->prepare($query);
+      $insert_one->execute($arr);
+      // after inserting back to this given path
+      header("location:" . $path);
+    }
+  }
+
 }
 
 $app = new App();
