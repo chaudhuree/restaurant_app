@@ -74,7 +74,29 @@ class App
       header("location:" . $path);
     }
   }
+  // update data
 
+  public function update($query, $arr, $path)
+  {
+    if ($this->validate($arr) == "empty") {
+      echo "<script>alert('one or more fields are empty')</script>";
+    } else {
+      $update_one = $this->link->prepare($query);
+      $update_one->execute($arr);
+
+      header("location:" . $path);
+    }
+  }
+  // delete data
+
+  public function delete($query, $path)
+  {
+
+    $update_one = $this->link->query($query);
+    $update_one->execute();
+
+    header("location:" . $path);
+  }
 }
 
 $app = new App();
