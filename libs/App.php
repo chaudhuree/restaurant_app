@@ -126,6 +126,20 @@ class App
       }
     }
   }
+
+  // starting session
+  public function startingSession()
+  {
+    session_start();
+  }
+
+  // validating session
+  public function validateSession($path)
+  {
+    if (isset($_SESSION['id'])) {
+      header("location:" . $path);
+    }
+  }
 }
 
 $app = new App();
