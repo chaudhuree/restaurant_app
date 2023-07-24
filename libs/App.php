@@ -134,6 +134,13 @@ class App
   }
 
   // validating session
+  // it is for checking that user is logged in or not
+  // it is necessary. because if the user is logged in
+  // then we will not allow them to access login or register page
+  // they can only access this page if they are logged out
+
+  // hete $path is the path where we want to redirect the user
+  // if it is the index page then we will pass it when calling the functon
   public function validateSession($path)
   {
     if (isset($_SESSION['id'])) {
