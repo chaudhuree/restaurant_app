@@ -1,4 +1,3 @@
-<?php require_once("../config/config.php"); ?>
 
 <?php
 
@@ -149,4 +148,3 @@ class App
   }
 }
 
-$app = new App();
