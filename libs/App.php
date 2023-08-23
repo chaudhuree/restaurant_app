@@ -19,7 +19,7 @@ class App
   {
     $this->link = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbname, $this->user, $this->password);
     if ($this->link) {
-      echo "Connection successful";
+      // echo "Connection successful";
     }
   }
 
@@ -122,7 +122,11 @@ class App
 
       if (password_verify($data['password'], $fetch['password'])) {
         header("location:" . $path);
+      }else {
+        echo "<script>alert('Password is incorrect')</script>";
       }
+    }else {
+      echo "<script>alert('Email is incorrect')</script>";
     }
   }
 
@@ -147,4 +151,3 @@ class App
     }
   }
 }
-
